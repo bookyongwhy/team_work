@@ -12,15 +12,15 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 @bp.route('/register', methods=('GET', 'POST'))
 def register():
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+        username = request.form['用户名']
+        password = request.form['密码']
         db = get_db()
         error = None
 
         if not username:
-            error = 'Username is required.'
+            error = '请输入用户名.'
         elif not password:
-            error = 'Password is required.'
+            error = '请输入密码.'
 
         if error is None:
             try:
@@ -41,8 +41,8 @@ def register():
 @bp.route('/login', methods=('GET', 'POST'))
 def login():
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+        username = request.form['用户名']
+        password = request.form['密码']
         db = get_db()
         error = None
         user = db.execute(
