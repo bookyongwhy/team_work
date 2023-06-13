@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 
+<div id="clock"></div>
+<script src="{{ url_for('static', filename='clock.js') }}"></script>
+
 {% block header %}
   <h1>{% block title %}Posts{% endblock %}</h1>
   {% if g.user %}
